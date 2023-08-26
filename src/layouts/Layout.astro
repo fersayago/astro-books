@@ -15,9 +15,14 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@fersayago" />
+		<meta name="view-transition" content="same-origin" />
 	</head>
 	<body>
-		<slot />
+		<div id="content">
+			<slot />
+		</div>
 	</body>
 </html>
 <style is:global>
@@ -34,3 +39,9 @@ const { title } = Astro.props;
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
 </style>
+
+<script>
+	import { startViewTransition } from '../utils/navigation.js';
+
+	startViewTransition()
+</script>
